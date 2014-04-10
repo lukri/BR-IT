@@ -1,3 +1,5 @@
+alert("fast check");
+
 //Zoom-Prop
 Zoom.EnableDblClick = false;
 Zoom.BorderColor = 'black';

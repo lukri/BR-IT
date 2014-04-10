@@ -1,4 +1,4 @@
-//Zoom-Prop
+//Zoom-Param
 Zoom.EnableDblClick = false;
 Zoom.BorderColor = 'black';
 Zoom.BorderWidth = 1;

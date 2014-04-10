@@ -1,6 +1,3 @@
-alert("works?");
-
-
 //Zoom-Prop
 Zoom.EnableDblClick = false;
 Zoom.BorderColor = 'black';

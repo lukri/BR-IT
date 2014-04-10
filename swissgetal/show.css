@@ -1,0 +1,98 @@
+html {font-family: Geneva, Arial, Helvetica, sans-serif;}
+
+
+.main-holder, .container-bg, .header, .nav__primary, .moduletable {
+    position: relative;
+}
+
+
+body .main-holder, .container-bg, .content-holder, .bodycontainer, #content, .item-page {
+    position: relative;
+}
+
+
+table {
+  border:1px solid black;
+  border-spacing:0;
+}
+ table td {
+  border:1px solid black;
+  margin:0;
+  padding:10px;
+}
+table img {
+  height:100px;
+}
+
+#modeswitcher {
+    position: absolute;
+    right: 10px;
+    top: 80px;
+}
+
+
+#produktebox {
+    background: #FFFFFF;
+    padding: 10px;
+    width: 100%;
+}
+
+#productline {
+  width:50%;
+  float:left;
+}
+#showcontainer {
+    border-left: 1px solid grey;
+    margin-left: 52%;
+    padding: 20px; 
+}
+
+
+#show {
+  background:#fff;
+  /*border:1px solid black;*/
+  width:410px;
+}
+
+
+#bilderbox {
+  width:400px;
+  height:100px;
+  padding:5px;
+  position:relative;
+}
+
+#bilderbox div {
+  height:60px;
+  position:absolute;
+  margin-top:10px;
+}
+
+#bilderbox div img{
+  height:100%;
+}
+
+#pic1 {
+  margin-left: -8;
+  height: 78px !important;
+  padding:0px;
+}
+
+#infobox {
+  width:400px;
+  height:400px;  
+  padding:5px;
+  position:relative;
+}
+
+#itemcount {
+  font-size:10px;
+  position:absolute;
+  right:50%;
+  top:-5px;
+}
+
+#ZoomPicError, #ZoomPicWait {
+  display:none;
+
+}

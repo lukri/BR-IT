@@ -1,5 +1,3 @@
-console.log("huhu");
-
 //Zoom-Prop
 Zoom.EnableDblClick = false;
 Zoom.BorderColor = 'black';

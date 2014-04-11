@@ -151,11 +151,12 @@ function movePics(direction) {
     for(i=0; i<4; i++){
         linkpos = parseInt(bilder[i].style.left) + m;
         bilder[i].style.left = linkpos + "px";
-        if(linkpos>mitte){
+        /*if(linkpos>mitte){
             trans= (rechts+distanz-linkpos)/mitte;
         }else{
             trans= (linkpos-links+distanz)/mitte;
-        }
+        }*/
+        trans = Math.abs(Math.abs(linkpos-mitte)-mitte)/mitte;
         if(linkpos == mitte){trans= 1;}
         bilder[i].style.opacity = trans;
         bilder[i].style.filter  = 'alpha(opacity=' + trans*100 + ')';  // IE fallback

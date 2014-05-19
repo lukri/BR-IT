@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+        <title>Montemedia</title>
+    	<script src="js/jquery-1.11.0.min.js"></script>
+    	<script src="js/d3.min.js"></script>
+    	<script src="js/polymaps.min.js"></script>
+    	<script src="js/map.js"></script>
+    	<script src="js/data.js"></script>
+    	<script src="js/sequences.js"></script>
+    	<link rel="stylesheet" href="sequences.css">
+    	<script src="js/barchart.js"></script>
+    	<script src="js/my_app.js"></script>
+    	<!--<script src="js/contextmenu.js"></script>-->
+        
+        <!--http://jqueryui.com/tabs/ or http://os.alfajango.com/easytabs -->
+        <script src="js/jquery-1.10.4-ui.js"></script>
+        <link rel="stylesheet" href="jquery-1.10.4-ui.css">
+ 
+    	<link rel="stylesheet" href="style.css">
+    	<script>
+            $(function() {
+                $( "#tabs" ).tabs();
+            });
+        </script>
+</head>
+
+<body>
+    <div id="content">
+    <div id="navi">
+        <div id="inputBoxes"></div>
+        <div id="expl">
+            Explanation: 
+                <div id="verlauf"></div>
+                <span>|<p></p></span>
+                <span>|<p></p></span>
+                <span>|<p></p></span>
+                <span>|<p></p></span>
+                <span>|<p></p></span>
+                <span class="text"><p></p></span>
+                <a onclick="printData(this)" id="schweiz" name="Schweiz" class="canton">Schweiz</a>
+        </div>
+        <div id="total"></div>
+        
+        
+    </div>
+    <div id="databox">
+        <h3 id="titel"></h3>
+        
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Selection</a></li>
+                <li><a href="#tabs-2">Devices</a></li>
+                <li><a href="#tabs-3">OS</a></li>
+                <li><a href="#tabs-4">Browser</a></li>
+            </ul>
+            <div id="tabs-1">
+                <div id="selectedData"></div>
+                <div id="sequences">
+                    <div id="main">
+                        <br>Legend:<br>
+                        <span id="selected"></span> Selected Devices<br>
+                        <span id="notselected"></span> Not selected Data<br><br>
+                        <div id="chart"></div>
+                        Selected Sequence:
+                        <div id="sequence"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tabs-0">
+                <div id="barchart"></div>
+                <script id="csv" type="text/csv"></script>
+            </div>
+            <div id="tabs-2">
+                Devices in %
+                <div id="barDevice"></div>
+                <br>
+            </div>
+            <div id="tabs-3">
+                Operating Systems in %
+                <div id="barOS"></div>
+                <br>
+            </div>
+            <div id="tabs-4">
+                Browser in %
+                <div id="barBrowser"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="map">
+         <div id="tip">
+            <!--<p>Please wait while loading... <img src="progress-wheel.gif" height="15px"></p>-->
+            <p>Loading... <!--<img src="progress-wheel.gif" height="15px">--></p>
+         </div>
+    </div>
+    
+</body>
+
+</html>

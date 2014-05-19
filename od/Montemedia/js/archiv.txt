@@ -1,0 +1,45 @@
+von index.html---------------------------------------------------------------------------------
+
+<div id="kantonsdaten"></div>
+
+von data.js---------------------------------------------------------------------------------
+
+//Sunburst Alternative
+//könnte verwendet werden, um abhängigkeit von verschiedenen eigenschaften zu zeigen
+    /* wird mit sunburst diagramme ersetzt
+    text = "";
+    for (var dt in kantonsdaten[kanton]){
+        if((dt=="Device")|(dt=="OS")|(dt=="Browser")|(dt=="total")|(dt=="selected")|(dt=="percent")){}else{
+            text += "<li>" + dt + "</li><ul>";
+            for (var os in kantonsdaten[kanton][dt]){
+                if(os=="amount"){}else{    
+                    text += "<li>" + os + "</li><ul>";
+                    for (var browser in kantonsdaten[kanton][dt][os]){
+                        if(browser=="amount"){}else{    
+                            text += "<li>" + browser + "</li>";
+                        }
+                    }
+                    text += "</ul>";
+                }
+            }
+            text += "</ul>";
+        }
+    }
+    text += "</ul>";
+     */
+     
+    /* soll mit diagramme ersetzt werden*/
+    text = "Devices: <ul>";
+    for(var device in kantonsdaten[kanton].Device){
+        text += "<li>"+ device+": "+ rpc(kantonsdaten[kanton].Device[device],amount) + "%</li>";
+    }text += "</ul>";
+    text += "OS: <ul>";
+    for(var os in kantonsdaten[kanton].OS){
+        text += "<li>"+os+": "+ rpc(kantonsdaten[kanton].OS[os],amount) + "%</li>";
+    }text += "</ul>";
+    text += "Browser: <ul>";
+    for(var browser in kantonsdaten[kanton].Browser){
+        text += "<li>"+browser+": "+ rpc(kantonsdaten[kanton].Browser[browser], amount) + "%</li>";
+    }text += "</ul>";
+
+    document.getElementById("kantonsdaten").innerHTML = text;

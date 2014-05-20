@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <head>
-        <title>Montemedia</title>
+        <title>Open Data - Montemedia</title>
     	<script src="js/jquery-1.11.0.min.js"></script>
     	<script src="js/d3.min.js"></script>
     	<script src="js/polymaps.min.js"></script>
     	<script src="js/map.js"></script>
     	<script src="js/data.js"></script>
     	<script src="js/sequences.js"></script>
-    	<link rel="stylesheet" href="sequences.css">
+    	<link rel="stylesheet" href="css/sequences.css">
     	<script src="js/barchart.js"></script>
     	<script src="js/my_app.js"></script>
-    	<!--<script src="js/contextmenu.js"></script>-->
+    	<script src="js/contextmenu.js"></script>
         
         <!--http://jqueryui.com/tabs/ or http://os.alfajango.com/easytabs -->
         <script src="js/jquery-1.10.4-ui.js"></script>
-        <link rel="stylesheet" href="jquery-1.10.4-ui.css">
+        <link rel="stylesheet" href="css/jquery-1.10.4-ui.css">
  
-    	<link rel="stylesheet" href="style.css">
+    	<link rel="stylesheet" href="css/style.css">
     	<script>
             $(function() {
                 $( "#tabs" ).tabs();
@@ -27,9 +27,10 @@
 <body>
     <div id="content">
     <div id="navi">
+        Select Device Properties:<br>
         <div id="inputBoxes"></div>
         <div id="expl">
-            Explanation: 
+            Legend: 
                 <div id="verlauf"></div>
                 <span>|<p></p></span>
                 <span>|<p></p></span>
@@ -37,15 +38,13 @@
                 <span>|<p></p></span>
                 <span>|<p></p></span>
                 <span class="text"><p></p></span>
-                <a onclick="printData(this)" id="schweiz" name="Schweiz" class="canton">Schweiz</a>
+                
         </div>
-        <div id="total"></div>
-        
         
     </div>
     <div id="databox">
+        <a onclick="printData(this)" id="schweiz" name="Schweiz" class="canton">Show Swiss Data</a>
         <h3 id="titel"></h3>
-        
         <div id="tabs">
             <ul>
                 <li><a href="#tabs-1">Selection</a></li>
@@ -66,9 +65,7 @@
                     </div>
                 </div>
             </div>
-
             <div id="tabs-0">
-                <div id="barchart"></div>
                 <script id="csv" type="text/csv"></script>
             </div>
             <div id="tabs-2">
@@ -86,13 +83,19 @@
                 <div id="barBrowser"></div>
             </div>
         </div>
+        <a id="infolink" onclick="switchShowInfo()" >Info</a>
     </div>
     </div>
     <div id="map">
-         <div id="tip">
+        <div onclick="switchShowInfo()" id="info">
+        <p>The presented data is from <a href="http://www.montemedia.com/" target="_blank">Montemedia</a>. It represents the Customer form Montemedia and shows what kind of devices the customers uses in wich region of Switzerland</p>
+        </div>
+        <div id="tip">
+            <div id="load">
             <!--<p>Please wait while loading... <img src="progress-wheel.gif" height="15px"></p>-->
             <p>Loading... <!--<img src="progress-wheel.gif" height="15px">--></p>
-         </div>
+            </div>
+        </div>
     </div>
     
 </body>

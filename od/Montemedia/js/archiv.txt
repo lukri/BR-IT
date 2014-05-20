@@ -1,8 +1,18 @@
 von index.html---------------------------------------------------------------------------------
 
 <div id="kantonsdaten"></div>
+<div id="total"></div>
 
 von data.js---------------------------------------------------------------------------------
+
+var total = document.getElementById("total");
+total.innerHTML = "Total of "+Total.amount+" Devices in Switzerland";
+total.innerHTML = "Totally "+Total.Selection+" of "+Total.amount+" ("+rpc(Total.Selection,Total.amount)+"%) Devices selected in Switzerland";
+    
+
+
+
+
 
 //Sunburst Alternative
 //könnte verwendet werden, um abhängigkeit von verschiedenen eigenschaften zu zeigen

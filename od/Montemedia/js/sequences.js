@@ -124,7 +124,6 @@ function createVisualization(json) {
 
 // Fade all but the current sequence, and show it in the breadcrumb trail.
 function mouseover(d) {
-
   //var percentage = (100 * d.value / totalSize).toPrecision(3);
   var percentage = rpc(d.value, totalSize);
   var percentageString = percentage + "%";
@@ -144,6 +143,9 @@ function mouseover(d) {
   // Fade all the segments.
   d3.selectAll("path")
       .style("opacity", 0.3);
+  d3.select("#canton").selectAll("path").each(function(i){
+      if(this.id == currentKantonId){this.style.opacity = 1;}
+  });
 
   // Then highlight only those that are an ancestor of the current segment.
   vis.selectAll("path")
@@ -164,12 +166,16 @@ function mouseleave(d) {
   d3.selectAll("path").on("mouseover", null);
 
   // Transition each segment to full opacity and then reactivate it.
-  d3.selectAll("path")
+  //d3.selectAll("path")
+  d3.select("#chart").selectAll("path")
       .transition()
       .style("opacity", 1)
       .each("end", function() {
               d3.select(this).on("mouseover", mouseover);
             });
+            
+  d3.selectAll("path")
+      .style("opacity", 1);
             
   d3.select("#percentage")
       .transition()

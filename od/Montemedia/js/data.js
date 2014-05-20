@@ -28,6 +28,8 @@ var kantone = {
 "zh": "Zurich",
 "schweiz": "Schweiz"
 };
+var currentKantonId;
+
 var kantonsdaten = {}; //new Object();
 var Total = {};
 Total.amount = 0;
@@ -54,6 +56,10 @@ var cssObj = document.createElement('style');
 cssObj.type = 'text/css';
 document.getElementsByTagName('head')[0].appendChild(cssObj);
 // use cssObj.innerHTML to change styles
+var cssObj2 = document.createElement('style');
+cssObj2.type = 'text/css';
+document.getElementsByTagName('head')[0].appendChild(cssObj2);
+// use cssObj2.innerHTML to change styles
 
 function initAll(){
     loadMap();
@@ -71,6 +77,15 @@ function setWait(wait){
         tip.style.display = "none";
         content.style.display = "block";
         $('.compass').each(function(i) {this.style.display = "block";});
+    }
+}
+
+function switchShowInfo(){
+    var info = document.getElementById("info");
+    if(info.style.display == "block"){
+        info.style.display = "none";
+    }else{
+        info.style.display = "block";
     }
 }
 
@@ -120,7 +135,7 @@ function drawGradient(){
                              .attr("x", i*4.1)
                              .attr("y", 0)
                              .attr("width", 4)
-                             .attr("height", 10)
+                             .attr("height", 15)
                              .attr("fill", colorBrewer(Math.round(i*2.55)));
     }
 }
@@ -145,7 +160,6 @@ function getData(kanton){
         Device: d['Device Type'],
         OS: d.OS,
         Browser: d.Browser,
-
       };
     }).get(function(error, rows) {
       for (var i = 0; i < rows.length; i++) {
@@ -238,8 +252,9 @@ function round(original){
 
 function printData(kanton){
     document.getElementById("titel").innerHTML = kanton.getAttribute("name");
+    currentKantonName = kanton.getAttribute("name");
     var selectedData = document.getElementById("selectedData");
-    
+    currentKantonId = kanton.id;
     kanton = kantone[kanton.id];
     var amount = kantonsdaten[kanton].total;
     var text = "";
@@ -258,6 +273,14 @@ function printData(kanton){
     
     showDataBox(true);
     
+    if(currentKantonId == "schweiz"){
+        //cssObj2.innerHTML = "#canton * {opacity:1;}"; 
+        cssObj2.innerHTML = "";
+    }else{
+        //cssObj2.innerHTML = "#canton * {opacity:0.8;} #"+currentKantonId+" {stroke-width: 5px;opacity:1;}";
+        cssObj2.innerHTML = "#"+currentKantonId+" {stroke-width: 5px;}";
+    }
+    
 }
 
 
@@ -266,7 +289,7 @@ function paintData(){
     console.clear();
     
     var exps = document.getElementById("expl").getElementsByTagName('p');
-    var total = document.getElementById("total");
+    
     
     
     
@@ -358,25 +381,19 @@ function paintData(){
     });
     
     
-    
+    var ext = "";
     if(selectionMode == 0){
-        exps[0].innerHTML = "0";
-        exps[1].innerHTML = round(max*0.25);
-        exps[2].innerHTML = round(max*0.5);
-        exps[3].innerHTML = round(max*0.75);
-        exps[4].innerHTML = round(max);
         exps[5].innerHTML = "Devices in Kanton";
-        total.innerHTML = "Total of "+Total.amount+" Devices in Switzerland";
     }else{
-        exps[0].innerHTML = "0%";
-        exps[1].innerHTML = round(max*0.25)+'%';
-        exps[2].innerHTML = round(max*0.5)+'%';
-        exps[3].innerHTML = round(max*0.75)+'%';
-        exps[4].innerHTML = round(max)+'%';
         exps[5].innerHTML = "Devices of Kanton";
-        total.innerHTML = "Totally "+Total.Selection+" of "+Total.amount+" ("+rpc(Total.Selection,Total.amount)+"%) Devices selected in Switzerland";
+        ext = "%";
     }
-
+    exps[0].innerHTML = "0"+ext;
+    exps[1].innerHTML = round(max*0.25)+ext;
+    exps[2].innerHTML = round(max*0.5)+ext;
+    exps[3].innerHTML = round(max*0.75)+ext;
+    exps[4].innerHTML = round(max)+ext;
+    
     cssObj.innerHTML = ""; //clear styles
     
     $('.canton').each(function(i) {
@@ -398,9 +415,11 @@ function paintData(){
     console.log(cssObj.innerHTML);
     setWait(false);
 
-    var schweiz = {'id':'schweiz','name':'Schwei'};
-    //printData(schweiz);
+    //schows swiss data
+    var schweiz = {'id':'schweiz'};
     window.setTimeout("printData(schweiz);", 10);
+    //activates first tab (Selection)
+    $( "#tabs" ).tabs({ active: 0 });
 }
 
 

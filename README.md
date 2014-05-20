@@ -1,6 +1,10 @@
 BR-IT
 =====
 
-how to push:
+Open Data Projekt Unibe mit Daten von Montemedai
 
-git --push -a
+
+how to push:
+git add --all
+git commit -am "comment"
+git --push -all

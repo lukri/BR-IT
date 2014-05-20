@@ -1,6 +1,6 @@
 function loadMap() {
     //var width = window.innerWidth-100, height = window.innerHeight-100;
-    var width = "99%", height = "90%";
+    var width = "99%", height = "100%";
     var vis = d3.select("#map").append("svg:svg").attr('width', width).attr('height', height);
     var po = org.polymaps;
     

@@ -1,6 +1,7 @@
 /*--Allgemein-----------------------------------------------------------------*/
 body {
   background: #E6E6E6;
+  cursor:default;
 }
 
 #content {
@@ -13,17 +14,17 @@ body {
     fill:red;
 }
 
-/*--Tip-----------------------------------------------------------------------*/
+/*--Tip & Info-----------------------------------------------------------------------*/
 
-#tip {
+#tip, #info {
     position:absolute;
-    z-index:99;
+    z-index:1000;
     margin-top:200px;
     text-align:center;
     width:100%;
 }
 
-#tip p{
+#tip p, #info p{
     border:1px solid black;
     background:#fff;
     opacity:0.8;
@@ -31,8 +32,33 @@ body {
     width:200px;
     margin: 0 auto;
     text-align:center;
-    
 }
+#info {
+    display:none;
+    cursor:pointer;
+}
+
+#info p{
+    width:400px;
+    opacity:1;
+}
+#close {
+    float:right;
+}
+
+#infolink {
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px;
+    cursor:pointer;
+}
+
+#schweiz {
+    padding:5px;
+    float:right;
+    cursor:pointer;
+}
+
 
 /*--Navi Bereich--------------------------------------------------------------*/
 
@@ -47,7 +73,7 @@ body {
     text-align: center;
     width: 50px;
     margin-right:47px;
-    margin-top:-15px;
+    margin-top:-11px;
 }
 
 #navi span p{
@@ -61,6 +87,10 @@ body {
 
 #verlauf {
     margin-left:25px;
+}
+
+input, select, option{
+    cursor:pointer !important;
 }
 
 
@@ -77,7 +107,8 @@ body {
     background:#fff;
     opacity:0;
     padding:0 5px;
-    z-index: 9999;
+    z-index: 999;
+    min-height: 600px;
 }
 
 
@@ -108,12 +139,14 @@ body {
     position: absolute;
     top: 100px;
     width:99%;
+    height: 89%;
 }
 
 .layer path {
   stroke: #fff;
   stroke-width: 1px;
   vector-effect: non-scaling-stroke;
+  cursor:pointer;
 }
 
 .canton:hover{
@@ -124,6 +157,11 @@ body {
 
 
 /* Compass */
+.compass {
+    cursor:pointer;
+}
+
+
 .compass .back {
   fill: #eee;
   fill-opacity: .8;

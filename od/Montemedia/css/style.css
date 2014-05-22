@@ -151,6 +151,9 @@ input, select, option{
 .ui-widget-content {
     border: none !important;   
 }
+#tabs li a{
+    outline:none;
+}
 
 
 

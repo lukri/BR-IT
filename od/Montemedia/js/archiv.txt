@@ -3,6 +3,11 @@ von index.html------------------------------------------------------------------
 <div id="kantonsdaten"></div>
 <div id="total"></div>
 
+<h3>Data Info</h3>
+<p>The presented data is from <a href="http://www.montemedia.com/" target="_blank">Montemedia</a>. 
+It represents the Customer form Montemedia and shows what kind of devices the customers uses in wich region of Switzerland</p>
+<p>&copy; 2014 - S&eacute;bastien Broggi & Lukas Riesen</p>
+
 von data.js---------------------------------------------------------------------------------
 
 var total = document.getElementById("total");

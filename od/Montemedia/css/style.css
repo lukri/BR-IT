@@ -11,11 +11,15 @@ body {
 }
 
 #seitentitel{
-    position:absolute;
-    width:100%;
     text-align:center;
+    margin:0;
+    margin-top:5px;
 }
 
+#databox #titel {
+    margin:0;
+    margin-top:5px;
+}
 
 .compass {
     display:none;
@@ -106,7 +110,7 @@ body {
 }
 
 #navi .text {
-    width: 115px;
+    width: 150px;
     margin-left:-40px;
 }
 
@@ -165,6 +169,7 @@ input, select, option{
     top: 100px;
     width:99%;
     height: 89%;
+    margin-top:5px;
 }
 
 .layer path {

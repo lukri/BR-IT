@@ -5,11 +5,10 @@
     	<script src="js/d3.min.js"></script>
     	<script src="js/polymaps.min.js"></script>
     	<script src="js/map.js"></script>
-    	<script src="js/data.js"></script>
+    	<script src="js/my_app.js"></script>
     	<script src="js/sequences.js"></script>
     	<link rel="stylesheet" href="css/sequences.css">
     	<script src="js/barchart.js"></script>
-    	<script src="js/my_app.js"></script>
     	<script src="js/contextmenu.js"></script>
         
         <!--http://jqueryui.com/tabs/ or http://os.alfajango.com/easytabs -->
@@ -25,70 +24,76 @@
 </head>
 
 <body>
+    <div id="seitentitel"><h2>Open Data - Montemedia</h2></div>
     <div id="content">
-    <div id="navi">
-        Select Device Properties:<br>
-        <div id="inputBoxes"></div>
-        <div id="expl">
-            Legend: 
-                <div id="verlauf"></div>
-                <span>|<p></p></span>
-                <span>|<p></p></span>
-                <span>|<p></p></span>
-                <span>|<p></p></span>
-                <span>|<p></p></span>
-                <span class="text"><p></p></span>
-                
+        <div id="navi">
+            Select Device Properties:<br>
+            <div id="inputBoxes"></div>
+            <div id="expl">
+                Legend: 
+                    <div id="verlauf"></div>
+                    <span>|<p></p></span>
+                    <span>|<p></p></span>
+                    <span>|<p></p></span>
+                    <span>|<p></p></span>
+                    <span>|<p></p></span>
+                    <span class="text"><p></p></span>
+                    
+            </div>
+            
         </div>
-        
-    </div>
-    <div id="databox">
-        <a onclick="printData(this)" id="schweiz" name="Schweiz" class="canton">Show Swiss Data</a>
-        <h3 id="titel"></h3>
-        <div id="tabs">
-            <ul>
-                <li><a href="#tabs-1">Selection</a></li>
-                <li><a href="#tabs-2">Devices</a></li>
-                <li><a href="#tabs-3">OS</a></li>
-                <li><a href="#tabs-4">Browser</a></li>
-            </ul>
-            <div id="tabs-1">
-                <div id="selectedData"></div>
-                <div id="sequences">
-                    <div id="main">
-                        <br>Legend:<br>
-                        <span id="selected"></span> Selected Devices<br>
-                        <span id="notselected"></span> Not selected Data<br><br>
-                        <div id="chart"></div>
-                        Selected Sequence:
-                        <div id="sequence"></div>
+        <div id="databox">
+            <a onclick="printData(this)" id="schweiz" name="Schweiz" class="canton">Show Swiss Data</a>
+            <h3 id="titel"></h3>
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Selection</a></li>
+                    <li><a href="#tabs-2">Devices</a></li>
+                    <li><a href="#tabs-3">OS</a></li>
+                    <li><a href="#tabs-4">Browser</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <div id="selectedData"></div>
+                    <div id="sequences">
+                        <div id="main">
+                            <br>Legend:<br>
+                            <span id="selected"></span> Selected Devices<br>
+                            <span id="notselected"></span> Not selected Data<br><br>
+                            <div id="chart"></div>
+                            Selected Sequence:
+                            <div id="sequence"></div>
+                        </div>
                     </div>
                 </div>
+                <div id="tabs-0">
+                    <script id="csv" type="text/csv"></script>
+                </div>
+                <div id="tabs-2">
+                    <div id="descriptiondevice"></div><br>
+                    <div id="barDevice"></div>
+                    <br>
+                </div>
+                <div id="tabs-3">
+                    <div id="descriptionos"></div><br>
+                    <div id="barOS"></div>
+                    <br>
+                </div>
+                <div id="tabs-4">
+                    <div id="descriptionbrowser"></div><br>
+                    <div id="barBrowser"></div>
+                </div>
             </div>
-            <div id="tabs-0">
-                <script id="csv" type="text/csv"></script>
-            </div>
-            <div id="tabs-2">
-                Devices in %
-                <div id="barDevice"></div>
-                <br>
-            </div>
-            <div id="tabs-3">
-                Operating Systems in %
-                <div id="barOS"></div>
-                <br>
-            </div>
-            <div id="tabs-4">
-                Browser in %
-                <div id="barBrowser"></div>
-            </div>
+            <a id="infolink" onclick="switchShowInfo()" >Info</a>
         </div>
-        <a id="infolink" onclick="switchShowInfo()" >Info</a>
-    </div>
     </div>
     <div id="map">
         <div onclick="switchShowInfo()" id="info">
-        <p>The presented data is from <a href="http://www.montemedia.com/" target="_blank">Montemedia</a>. It represents the Customer form Montemedia and shows what kind of devices the customers uses in wich region of Switzerland</p>
+            <div>
+                <h3>Data Info</h3>
+                <p>The presented data is from <a href="http://www.montemedia.com/" target="_blank">Montemedia</a>. 
+                It represents the Customer form Montemedia and shows what kind of devices the customers uses in wich region of Switzerland</p>
+                <p>&copy; 2014 - S&eacute;bastien Broggi & Lukas Riesen</p>
+            </div>
         </div>
         <div id="tip">
             <div id="load">
@@ -97,6 +102,7 @@
             </div>
         </div>
     </div>
+    <div onclick="switchShowInfo()" id="cover"></div>
     
 </body>
 
